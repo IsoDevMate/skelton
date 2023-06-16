@@ -5,13 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": " vite",
-    "start":"nodemon",
+    "start": "nodemon",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
-
-   "nodemonConfig": {
+  "nodemonConfig": {
     "watch": [
       "main.jsx"
     ],
@@ -19,12 +18,14 @@
   },
   "dependencies": {
     "nodemon": "^2.0.22",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-loading-skeleton": "^3.3.1",
     "react-router-dom": "^6.12.1"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react-swc": "^3.0.0",

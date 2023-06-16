@@ -5,6 +5,7 @@ import {
   RouterProvider
 } from "react-router-dom"
 import './index.css'
+import App from '/App.jsx'
 import Root from "./routes/root.jsx"
 import ErrorPage from "./error-page.jsx"
 import Contact from './routes/contact'
@@ -24,5 +25,6 @@ const router= createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router}/>
+    <App />
   </React.StrictMode>,
 )
