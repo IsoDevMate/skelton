@@ -1,7 +1,7 @@
 // import Skeleton from 'react-loading-skeleton'
 // import 'react-loading-skeleton/dist/skeleton.css'
 
-import useNavigate from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import PropTypes from "prop-types"; // ES6
 
 export const UserCard = ({ user }) => {

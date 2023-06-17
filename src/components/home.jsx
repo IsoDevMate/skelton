@@ -3,8 +3,9 @@
 //map through each user and set a user card and pass in through the props 
 
 import { useEffect, useState } from "react";
-import UserCard from './userCard.jsx'
+import  { UserCard } from './userCard.jsx'
 import { faker } from '@faker-js/faker';
+
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
   useEffect(() => {
     // Generate some fake user data using Faker
     const fakeUsers = Array.from({ length: 10 }, () => ({
-      name: faker.name.findName(),
+      name: faker.person.findName(),
       email: faker.internet.email(),
       avatar: faker.image.avatar(),
     }));
@@ -64,7 +65,8 @@ function App() {
         /*  <li key={user.email}>
             <img src={user.avatar} alt={user.name} />
             <p>{user.name}</p>
-            <p>{user.email}</p>
+            <p>{user.email}</p
+            >
           </li>*/
         ))}
       </ul>

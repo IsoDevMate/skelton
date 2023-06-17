@@ -3,24 +3,33 @@
 //import {router,route} from react-router-dom
 import Home from './components/home'
 import Posts from './components/posts'
-import { BrowserRouter,Routes,Route } from 'react-router-dom'
+import ErrorPage from "./error-page";
+import { BrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+// Create a routes array with your components
+const routes = [
+    { path: "/", element: <Home /> },
+    {  path:'/posts/:userId', element: <Posts /> },
+    { path: "/error", element: <ErrorPage /> },
+    // ...
+  ]
+// Create a data router using your routes
+const router = createBrowserRouter({
+  routes
+});
 
 const App=()=>{
     return(
         <div className='App'>
   <BrowserRouter>
-        <Routes>
-            <Route
-             path='/'
-             element={<Home />}
-            />
-            <Route
-             path='/posts/:userId'
-             element={<Posts />}
-            />
-        </Routes>
-        
-        </BrowserRouter>
+       
+    <RouterProvider router={router}>
+     <Home />
+     <Posts />
+     <ErrorPage />
+    </RouterProvider> 
+    </BrowserRouter>
    
         </div>
          )
