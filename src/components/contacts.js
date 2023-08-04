@@ -1,4 +1,4 @@
-import localforage from "localforage";
+/* import localforage from "localforage";
 import { matchSorter } from "match-sorter";
 import sortBy from "sort-by";
 
@@ -70,4 +70,4 @@ async function fakeNetwork(key) {
   return new Promise(res => {
     setTimeout(res, Math.random() * 800);
   });
-}
+} */

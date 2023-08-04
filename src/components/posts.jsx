@@ -1,14 +1,9 @@
-import PropTypes from 'prop-types';
-//when post component renders:
-//grab userId with useParams hook
-//fetch users post bassed on their id result is array of post
-//set post to first item of the array
-//display post tile and body display link to go back
-
-import 'react-loading-skeleton/dist/skeleton.css'
+import 'react-loading-skeleton/dist/skeleton.css';
 import { Link } from "react-router-dom";
-import { useState,useEffect } from "react";
-import Skeleton from 'react-loading-skeleton'
+import { useState, useEffect } from "react";
+import Skeleton from 'react-loading-skeleton';
+import PropTypes from 'prop-types';
+import axios from 'axios';
 
 const Posts = ({ userId }) => {
   const [posts, setPosts] = useState([]);
@@ -18,12 +13,8 @@ const Posts = ({ userId }) => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts/`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch posts');
-        }
-        const posts = await response.json();
-        setPosts(posts);
+        const response = await axios.get(`https://jsonplaceholder.typicode.com/users/${userId}/posts/`);
+        setPosts(response.data);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching posts:', error);
@@ -45,14 +36,8 @@ const Posts = ({ userId }) => {
           {posts.length > 0 ? (
             posts.map(post => (
               <div key={post.id}>
-                {post.loading ? (
-                  <Skeleton count={2} />
-                ) : (
-                  <>
-                    <h2>{post.title}</h2>
-                    <p>{post.body}</p>
-                  </>
-                )}
+                <h2>{post.title}</h2>
+                <p>{post.body}</p>
               </div>
             ))
           ) : (
@@ -67,7 +52,5 @@ const Posts = ({ userId }) => {
 Posts.propTypes = {
   userId: PropTypes.string.isRequired,
 };
-
-
 
 export default Posts;

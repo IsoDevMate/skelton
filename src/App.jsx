@@ -10,7 +10,7 @@ const App = () => {
       <SkeletonTheme baseColor="#202020" highlightColor="#444">
       <BrowserRouter>
         {/* The Routes component will handle rendering the correct component based on the route */
-        /* addskeleton themeing */
+        /* add a skeleton themeing */
         }
         <Routes>
           <Route path="/*" element={<Home />} />
